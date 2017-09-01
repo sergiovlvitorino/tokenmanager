@@ -31,7 +31,7 @@ public class AccountController {
 		}
 	}
 	
-	@RequestMapping(value = "destroy", method = RequestMethod.GET)
+	@RequestMapping(value = "destroy", method = RequestMethod.DELETE)
 	public ResponseEntity<?> destroy(String token){
 		if(core.destroy(token)){
 			return new ResponseEntity<String>(HttpStatus.OK);
