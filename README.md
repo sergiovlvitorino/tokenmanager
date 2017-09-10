@@ -1,7 +1,9 @@
 # tokenmanager
 This project is an API created with the intention to manage token.
 
+
 Method's Description:
+
 {url}/api/create
 Http Method: get
 Returns: json
