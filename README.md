@@ -2,7 +2,7 @@
 
 An API created to manage token.
 
-## Getting Started
+## Installing
 
 Open the terminal. Put the commands below to download and start the project:
 * $> git clone https://github.com/sergiovlvitorino/tokenmanager
@@ -18,25 +18,25 @@ Maven 3
 * {url}/api/create
 * Http Method: get
 * Returns: json
-<br>
+
 * {url}/api/check/{token}
 * Http Method: get
 * Returns: HttpStatus
-<br>
+
 * {url}/api/refresh
 * Http Method: put
 * Param: {token}
 * Returns: HttpStatus
-<br>
+
 * {url}/api/destroy
 * Http Method: delete
 * Param: {token}
 * Returns: HttpStatus
-<br>
+
 * {url}/api/countActiveAccounts
 * Http Method: get
 * Returns: text
-<br>
+
 ## Authors
 
 * **Sergio Vitorino** - (https://github.com/sergiovlvitorino)
