@@ -28,7 +28,7 @@ public class AccountCore {
 		return account;
 	}
 	
-	public Boolean validate(String token){
+	public Boolean refresh(String token){
 		Account account = repository.getByTokenAndDestroyedAt(token, null);
 		if(account != null){
 			account.setModifiedAt(Calendar.getInstance());
@@ -55,11 +55,11 @@ public class AccountCore {
 	public void invalidateAccounts(long interval) {
 		Calendar modifiedAt = Calendar.getInstance();
 		modifiedAt.setTimeInMillis(modifiedAt.getTimeInMillis() - interval);
-		List<Account> accounts = repository.getToDestroy(modifiedAt);
-		for (Account account : accounts) {
-			account.setDestroyedAt(Calendar.getInstance());
-		}
-		repository.save(accounts);
+		repository.invalidateAccount(modifiedAt);
+	}
+
+	public Boolean check(String token) {
+		return repository.getByTokenAndDestroyedAt(token, null) != null;
 	}
 	
 }

@@ -15,16 +15,16 @@ public class AccountDestructor implements Runnable{
 	private AccountCore core;
 	
 	@Value("${tokenmanager.interval}")
-	public Long interval;
+	private Long interval;
 	
 	public void run() {
 		while(true){
-			core.invalidateAccounts(interval);
 			try {
 				Thread.sleep(interval);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			core.invalidateAccounts(interval);
 		}
 		
 	}

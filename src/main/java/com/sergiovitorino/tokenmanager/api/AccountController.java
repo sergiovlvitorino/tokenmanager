@@ -22,9 +22,18 @@ public class AccountController {
 		return core.newAccount();
 	}
 	
-	@RequestMapping(value = "validate", method = RequestMethod.POST)
-	public ResponseEntity<?> validate(String token){
-		if(core.validate(token)){
+	@RequestMapping(value = "check", method = RequestMethod.GET)
+	public ResponseEntity<?> check(String token){
+		if(core.check(token)){
+			return new ResponseEntity<String>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<String>(HttpStatus.FORBIDDEN);
+		}
+	}
+	
+	@RequestMapping(value = "refresh", method = RequestMethod.PUT)
+	public ResponseEntity<?> refresh(String token){
+		if(core.refresh(token)){
 			return new ResponseEntity<String>(HttpStatus.OK);
 		} else {
 			return new ResponseEntity<String>(HttpStatus.FORBIDDEN);
