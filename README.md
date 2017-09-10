@@ -11,8 +11,8 @@ Open the terminal. Put the commands below to download and start the project:
 
 ### Prerequisites
 
-JDK 1.8
-Maven 3
+*JDK 1.8
+*Maven 3
 
 ### Method's description
 * {url}/api/create
