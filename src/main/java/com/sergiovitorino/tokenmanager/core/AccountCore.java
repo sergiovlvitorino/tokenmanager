@@ -1,7 +1,6 @@
 package com.sergiovitorino.tokenmanager.core;
 
 import java.util.Calendar;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -60,6 +59,10 @@ public class AccountCore {
 
 	public Boolean check(String token) {
 		return repository.getByTokenAndDestroyedAt(token, null) != null;
+	}
+	
+	public Account findByToken(String token) {
+		return repository.findByToken(token);
 	}
 	
 }

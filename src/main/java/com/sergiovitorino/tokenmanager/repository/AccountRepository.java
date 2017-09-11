@@ -14,7 +14,7 @@ import com.sergiovitorino.tokenmanager.model.Account;
 
 public interface AccountRepository extends CrudRepository<Account, Long>{
 	
-	Account getByToken(String token);
+	Account findByToken(String token);
 	
 	Account getByTokenAndDestroyedAt(String token, Calendar destroyedAt);
 	
