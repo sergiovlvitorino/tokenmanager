@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.sergiovitorino</groupId>
 	<artifactId>tokenmanager</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<name>Token Manager</name>
-	<description>API created to manage token</description>
+	<description>API built with the intention to manage access tokens.</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
