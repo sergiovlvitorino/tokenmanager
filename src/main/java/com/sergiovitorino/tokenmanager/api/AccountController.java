@@ -55,9 +55,4 @@ public class AccountController {
 		}
 	}
 	
-	@RequestMapping(value = { "countActiveAccounts" }, method = RequestMethod.GET)
-	public Long countActiveAccounts(){
-		return core.countActiveAccounts();
-	}
-	
 }
