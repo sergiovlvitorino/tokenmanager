@@ -1,16 +1,13 @@
 # TokenManager
-
 API built with the intention to manage access tokens.
 
-## Installing
-
+## Getting Started
 Open the terminal. Put the commands below to download and start the project:
 * $> git clone https://github.com/sergiovlvitorino/tokenmanager
 * $> cd tokenmanager
 * $> mvn spring-boot:run
 
 ### Prerequisites
-
 *JDK 1.8
 
 *Maven 3
@@ -25,6 +22,14 @@ Open the terminal. Put the commands below to download and start the project:
 * (PUT) - {url}/api/refresh/{token}
 
 * (DELETE) - {url}/api/destroy/{token}
+
+### Setting inactive period(milliseconds)
+Update the property $tokenmanager.interval located into src/resources/application.properties 
+
+### Running tests
+Open the terminal. Put the commands below to test:
+* $> cd tokenmanager
+* $> mvn clean test
 
 ## Authors
 
