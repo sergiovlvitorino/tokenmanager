@@ -39,6 +39,7 @@ public class AccountControllerTest {
 	public void testIfCheckReturnsOkWhenAccessTokenIsOk() throws Exception {
 		ResponseEntity<?> responseEntityExpected = new ResponseEntity<String>(HttpStatus.OK);
 		String accountString = this.restTemplete.getForObject("http://localhost:" + port + "/api/create", String.class);
+		
 		Account account = mapper.readValue(accountString, Account.class);
 		ResponseEntity<?> responseEntityActual = this.restTemplete
 				.getForEntity("http://localhost:" + port + "/api/check/" + account.getToken(), ResponseEntity.class);
