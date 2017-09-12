@@ -5,7 +5,8 @@ API built with the intention to manage access tokens.
 Open the terminal. Put the commands below to download and start the project:
 * $> git clone https://github.com/sergiovlvitorino/tokenmanager
 * $> cd tokenmanager
-* $> mvn spring-boot:run
+* $> mvn package
+* $> java -jar target/tokenmanager-1.0.0.jar
 
 ### Prerequisites
 *JDK 1.8
