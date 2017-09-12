@@ -16,32 +16,15 @@ Open the terminal. Put the commands below to download and start the project:
 *Maven 3
 
 ### Method's description
-* {url}/api/create
-* Http Method: get
-* Returns: json
+* (GET) - {url}/api/create
 
+* (GET) - {url}/api/check/{token}
 
-* {url}/api/check/{token}
-* Http Method: get
-* Returns: HttpStatus
+* (GET) - {url}/api/find/{token}
 
+* (PUT) - {url}/api/refresh/{token}
 
-* {url}/api/refresh
-* Http Method: put
-* Param: {token}
-* Returns: HttpStatus
-
-
-* {url}/api/destroy
-* Http Method: delete
-* Param: {token}
-* Returns: HttpStatus
-
-
-* {url}/api/countActiveAccounts
-* Http Method: get
-* Returns: text
-
+* (DELETE) - {url}/api/destroy/{token}
 
 ## Authors
 
