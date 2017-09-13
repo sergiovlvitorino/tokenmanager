@@ -9,9 +9,9 @@ Open the terminal. Put the commands below to download and start the project:
 * $> java -jar target/tokenmanager-1.0.0.jar
 
 ### Prerequisites
-*JDK 1.8
-
-*Maven 3
+* JDK 1.8
+* Maven 3
+* MongoDB
 
 ### Method's description
 * (GET) - {url}/api/create
