@@ -2,21 +2,15 @@ package com.sergiovitorino.tokenmanager.model;
 
 import java.util.Calendar;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document
 public class Account {
-
-	@JsonIgnore
-	@Id
-	@GeneratedValue
-	private Long id;
 	
+	@Id
 	@NotNull
 	private String token;
 	
@@ -26,14 +20,6 @@ public class Account {
 	private Calendar modifiedAt;
 	
 	private Calendar destroyedAt;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getToken() {
 		return token;
@@ -59,15 +45,6 @@ public class Account {
 		this.modifiedAt = modifiedAt;
 	}
 	
-	@Override
-	public boolean equals(Object o) {
-		if(o != null && o instanceof Account){
-			Account account = (Account) o;
-			return this.id.equals(account.getId());
-		}
-		return false;
-	}
-
 	public Calendar getDestroyedAt() {
 		return destroyedAt;
 	}

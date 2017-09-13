@@ -27,7 +27,7 @@ public class TokenFactory {
 	
 	public String newToken(){
 		String token = generate();
-		while(repository.findByToken(token) != null){
+		while(repository.findOne(token) != null){
 			token = generate();
 		}
 		return token;

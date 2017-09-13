@@ -1,6 +1,7 @@
 package com.sergiovitorino.tokenmanager.core;
 
 import java.util.Calendar;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -28,7 +29,7 @@ public class AccountCore {
 	}
 	
 	public Boolean refresh(String token){
-		Account account = repository.getByTokenAndDestroyedAt(token, null);
+		Account account = repository.findByTokenAndDestroyedAtIsNull(token);
 		if(account != null){
 			account.setModifiedAt(Calendar.getInstance());
 			repository.save(account);
@@ -38,31 +39,33 @@ public class AccountCore {
 	}
 
 	public Boolean destroy(String token) {
-		Account account = repository.getByTokenAndDestroyedAt(token, null);
-		if(account != null){
+		Account account = repository.findOne(token);
+		if(account != null && account.getDestroyedAt() == null){
 			account.setDestroyedAt(Calendar.getInstance());
 			repository.save(account);
 			return true;
 		}
 		return false;
 	}
-	
-	public Long countActiveAccounts(){
-		return repository.countByDestroyedAtNull();
-	}
 
 	public void invalidateAccounts(long interval) {
 		Calendar modifiedAt = Calendar.getInstance();
 		modifiedAt.setTimeInMillis(modifiedAt.getTimeInMillis() - interval);
-		repository.invalidateAccount(modifiedAt);
+		List<Account> accounts = repository.findByDestroyedAtIsNull();
+		for (Account account : accounts) {
+			if(account.getModifiedAt().before(modifiedAt)) {
+				account.setDestroyedAt(Calendar.getInstance());
+				repository.save(account);
+			}
+		}
 	}
 
 	public Boolean check(String token) {
-		return repository.getByTokenAndDestroyedAt(token, null) != null;
+		return repository.findByTokenAndDestroyedAtIsNull(token) != null;
 	}
 	
 	public Account findByToken(String token) {
-		return repository.findByToken(token);
+		return repository.findOne(token);
 	}
 	
 }
